@@ -1,0 +1,16 @@
+{
+  "name": "FP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01higherOrderFunction.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "folktale": "^2.3.2",
+    "lodash": "^4.17.19"
+  }
+}
