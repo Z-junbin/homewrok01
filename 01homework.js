@@ -68,13 +68,8 @@ console.log(firstCartsname(cars));
 let _average = function (xs) {
   return fp.reduce(fp.add, 0, xs) / xs.length;
 };
-function compaverageDollarValueose(...cars) {
-  return function (value) {
-    return cars.map().reduce(function (car, fn) {
-      return fn(car);
-    }, value);
-  };
-}
+
+let averageDollarValue = fp.flowRight(_average, fp.map('value'))
 
 //练习4.
 let sanitizeNames = fp.flowRight(
@@ -86,9 +81,7 @@ console.log(sanitizeNames(["Hello World"]));
 
 // 三
 // 练习1.
-let ex1 = () => {
-  return fp.map(fp.add(x, y), maybe._value);
-};
+let ex1 = maybe.map(i => fp.map(fp.add(1), i))
 
 //练习2.
 let ex2 = () => {
@@ -96,25 +89,10 @@ let ex2 = () => {
 };
 
 // 练习3.
-let ex3 = () => {
-  return fp.flowRight(fp.first, safeProp);
-};
+let ex3 = fp.flowRight(fp.map(i => fp.first(i)), safeProp('name'))
 
 // 练习4.
-class MayBe {
-  static of(value) {
-    return new MayBe(value);
-  }
-  constructor(value) {
-    this._value = value;
-  }
-  map(fn) {
-    return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this._value));
-  }
-  isNothing() {
-    return this._value === null || this._value === undefined;
-  }
-}
+let ex4 = n => Maybe.of(n).map(parseInt)
 
 //四 手写promise源码
 
