@@ -34,16 +34,16 @@
 
 // 一
   function promise(str) {
-    return new Promise(resolve => {
+    return new Promise((resolve,reject) => {
       setTimeout(() => {
         resolve(str)
       }, 10)
     })
   }
   async function PromiseShow() {
-    let a = await promise.resolve('hello')
-    let b = await promise.resolve('lagou')
-    let c = await promise.resolve('I love U')
+    let a = await promise('hello')
+    let b = await promise('lagou')
+    let c = await promise('I love U')
     console.log(a + b + c)
   }
   PromiseShow()
@@ -84,9 +84,7 @@ console.log(sanitizeNames(["Hello World"]));
 let ex1 = maybe.map(i => fp.map(fp.add(1), i))
 
 //练习2.
-let ex2 = () => {
-  return fp.first(xs._value);
-};
+let ex2 = xs.map(i => fp.first(i))
 
 // 练习3.
 let ex3 = fp.flowRight(fp.map(i => fp.first(i)), safeProp('name'))
